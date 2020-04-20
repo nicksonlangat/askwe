@@ -1,0 +1,15 @@
+{% extends "askwe.html" %}
+
+{% block title %}{{ question.title }} - {{ block.super }}{% endblock %}
+
+{% block body %}
+  {% include "display_question.html" %}
+  {% include "list_answers.html" %}
+  {% if user.is_authenticated %}
+    {% include "post_answer.html" %}
+    <hr>
+    <br>
+  {% else %}
+    <p class='alert alert-info' >You are browsing this site as guest, login to post answers.</p>
+  {% endif %}
+{% endblock %}

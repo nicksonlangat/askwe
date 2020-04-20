@@ -1,0 +1,17 @@
+{% load crispy_forms_tags %}
+<br>
+<hr>
+<div class="col-sm-12" >
+  <h4>Post your answer</h4>
+  <form method="post"
+        action="{% url "answer_question" pk=question.id %}" >
+    {{ answer_form | crispy }}
+    {% csrf_token %}
+    <button class="btn btn-warning btn-sm" type="submit" name="action"
+            value="PREVIEW" >Preview
+    </button >
+    <button class="btn float-right btn-success btn-sm" type="submit" name="action"
+            value="SAVE" >Answer
+    </button >
+  </form >
+</div >
